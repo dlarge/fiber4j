@@ -60,8 +60,8 @@ public class FibersExecutor {
 			threadCount : Runtime.getRuntime().availableProcessors();
 		final int oldThreadCount = executor.getCorePoolSize();
 		if(newThreadCount != oldThreadCount) {
-			executor.setCorePoolSize(newThreadCount);
 			executor.setMaximumPoolSize(newThreadCount);
+			executor.setCorePoolSize(newThreadCount);
 			if(newThreadCount > oldThreadCount) {
 				for(int i = oldThreadCount; i < newThreadCount; i ++) {
 					final FibersExecutorTask execTask = new FibersExecutorTask(
